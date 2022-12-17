@@ -1,4 +1,4 @@
-package com.Cinemania.Cinemaniabackend.controllers;
+package com.example.CRUDCapacitacionbackend.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

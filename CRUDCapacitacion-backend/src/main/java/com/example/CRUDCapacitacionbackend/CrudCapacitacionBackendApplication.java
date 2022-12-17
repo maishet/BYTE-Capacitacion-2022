@@ -1,13 +1,13 @@
-package com.Cinemania.Cinemaniabackend;
+package com.example.CRUDCapacitacionbackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CinemaniaBackendApplication {
+public class CrudCapacitacionBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CinemaniaBackendApplication.class, args);
+		SpringApplication.run(CrudCapacitacionBackendApplication.class, args);
 	}
 
 }

@@ -1,10 +1,10 @@
-package com.Cinemania.Cinemaniabackend;
+package com.example.CRUDCapacitacionbackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CinemaniaBackendApplicationTests {
+class CrudCapacitacionBackendApplicationTests {
 
 	@Test
 	void contextLoads() {
