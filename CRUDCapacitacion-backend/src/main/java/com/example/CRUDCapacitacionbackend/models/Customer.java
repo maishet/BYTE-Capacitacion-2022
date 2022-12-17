@@ -1,20 +1,22 @@
 package com.example.CRUDCapacitacionbackend.models;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Entity
 @Table(name = "customers")
-public class Customers {
+public class Customer {
     @Id
     @Getter @Setter @Column(length = 5) @GeneratedValue(strategy = GenerationType.AUTO)
     private String CustomerID;
     @Getter @Setter @Column(length = 40)
     private String CompanyName;
-    @Getter @Setter @Column(length = 30) @NonNull
+    @Getter @Setter @Column(length = 30)
     private String ContactName;
     @Getter @Setter @Column(length = 30)
     private String ContactTitle;
@@ -32,4 +34,7 @@ public class Customers {
     private String Phone;
     @Getter @Setter @Column(length = 24)
     private String Fax;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "customer")
+    private Set<Order> ordercustomers = new HashSet<>();
 }

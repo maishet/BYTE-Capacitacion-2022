@@ -5,25 +5,29 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Entity
 @Table(name = "orders")
-public class Orders {
-    @Id @Getter @Setter @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Order {
+    @Id
+    @Getter @Setter @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int OrderID;
-    @Getter @Setter @Column(length = 5)
-    private String CustomerID;
+    @Getter @Setter @ManyToOne(fetch = FetchType.EAGER)
+    private Customer customer;
+    @Getter @Setter @ManyToOne(fetch = FetchType.EAGER)
+    private Employee employee;
     @Getter @Setter
-    private int EmployeeID;
+    private Date OrderDate;
     @Getter @Setter
-    private Timestamp OrderDate;
+    private Date RequiredDate;
     @Getter @Setter
-    private Timestamp RequiredDate;
-    @Getter @Setter
-    private Timestamp ShippedDate;
-    @Getter @Setter
-    private int ShipVia;
+    private Date ShippedDate;
+    @Getter @Setter @ManyToOne(fetch = FetchType.EAGER)
+    private Shipper shipper;
     @Getter @Setter
     private BigDecimal Freight;
     @Getter @Setter @Column(length = 40)
@@ -38,4 +42,7 @@ public class Orders {
     private String ShipPostalCode;
     @Getter @Setter @Column(length = 15)
     private String ShipCountry;
+
+    //@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "order")
+    //private Set<Order_detail> orderdetailorders = new HashSet<>();
 }
