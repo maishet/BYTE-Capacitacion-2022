@@ -35,6 +35,6 @@ public class Customer {
     @Getter @Setter @Column(length = 24)
     private String Fax;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "customer")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "customer")
     private Set<Order> ordercustomers = new HashSet<>();
 }
