@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -12,8 +13,8 @@ import java.util.Set;
 @Table(name = "customers")
 public class Customer {
     @Id
-    @Getter @Setter @Column(length = 5) @GeneratedValue(strategy = GenerationType.AUTO)
-    private String CustomerID;
+    @Getter @Setter @Column(length = 5)
+    private String customerID;
     @Getter @Setter @Column(length = 40)
     private String CompanyName;
     @Getter @Setter @Column(length = 30)
@@ -36,5 +37,5 @@ public class Customer {
     private String Fax;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "customer")
-    private Set<Order> ordercustomers = new HashSet<>();
+    private List<Order> ordercustomers;
 }

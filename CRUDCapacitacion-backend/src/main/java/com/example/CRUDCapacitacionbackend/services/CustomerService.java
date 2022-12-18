@@ -7,9 +7,11 @@ import java.util.Set;
 
 public interface CustomerService {
 
+     Customer getCustomer(String id);
+     Customer updateCustomer(Customer customer);
      Customer saveCustomer(Customer customer);
 
-     Set<Customer> getCustomers();
+     List<Customer>getCustomers();
 
      void deteleCustomer(String id);
 }

@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -19,5 +20,6 @@ public class Shipper {
     private String Phone;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "shipper")
-    private Set<Order> ordershipper = new HashSet<>();
+    private List<Order> ordershipper;
+    //private Set<Order> ordershipper = new HashSet<>();
 }

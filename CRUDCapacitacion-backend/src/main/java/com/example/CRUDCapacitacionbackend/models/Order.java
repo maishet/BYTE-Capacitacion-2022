@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -44,5 +45,6 @@ public class Order {
     private String ShipCountry;
 
     //@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "order")
+    //private List<Order_detail> orderdetailorders;
     //private Set<Order_detail> orderdetailorders = new HashSet<>();
 }

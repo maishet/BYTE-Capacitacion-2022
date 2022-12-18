@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -37,6 +38,7 @@ public class Supplier {
     private String HomePage;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "supplier")
-    private Set<Product> productsupplier = new HashSet<>();
+    private List<Product> productsupplier;
+    //private Set<Product> productsupplier = new HashSet<>();
 
 }

@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -48,5 +49,6 @@ public class Employee {
     private int ReportsTo;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "employee")
-    private Set<Order> orderemployee = new HashSet<>();
+    private List<Order> orderemployee;
+    //private Set<Order> orderemployee = new HashSet<>();
 }

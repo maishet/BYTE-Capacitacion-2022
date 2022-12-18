@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -22,5 +23,6 @@ public class Category {
     private byte[] Picture;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "category")
-    private Set<Product> productcatecory = new HashSet<>();
+    private List<Product> productcatecory;
+    //private Set<Product> productcatecory = new HashSet<>();
 }

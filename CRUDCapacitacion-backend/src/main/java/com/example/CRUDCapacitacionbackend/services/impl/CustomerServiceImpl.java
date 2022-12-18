@@ -6,9 +6,7 @@ import com.example.CRUDCapacitacionbackend.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -18,14 +16,25 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
+    public Customer getCustomer(String id) {
+        //return null;
+        return customerRepository.findByCustomerID(id);
+    }
+
+    @Override
+    public Customer updateCustomer(Customer customer) {
+        return customerRepository.save(customer);
+    }
+
+    @Override
     public Customer saveCustomer(Customer customer){
         return customerRepository.save(customer);
 
     }
 
     @Override
-    public Set<Customer> getCustomers() {
-        return new HashSet<>(customerRepository.findAll());
+    public List<Customer> getCustomers() {
+        return customerRepository.findAll();
     }
 
     @Override
