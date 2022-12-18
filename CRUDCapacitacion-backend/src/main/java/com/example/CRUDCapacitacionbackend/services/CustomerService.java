@@ -2,13 +2,14 @@ package com.example.CRUDCapacitacionbackend.services;
 
 import com.example.CRUDCapacitacionbackend.models.Customer;
 
+import java.util.List;
 import java.util.Set;
 
 public interface CustomerService {
 
-    public Customer saveCustomer(Customer customer);
+     Customer saveCustomer(Customer customer);
 
-    public Set<Customer> getCustomers();
+     Set<Customer> getCustomers();
 
-    public void deteleCustomer(String id);
+     void deteleCustomer(String id);
 }

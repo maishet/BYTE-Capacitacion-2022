@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row vh-100 align-items-center justify-content-center">
+        <div class="col-sm-8 col-md-6 col-lg-4 shadow d-none d-sm-block d-sm-none d-md-block">
+            <div class="row justify-content-center align-items-center">
+                <img src="../../../assets/personal.png" alt="login">
+            </div>
+        </div>
+        <div class="col-sm-8 col-md-6 col-lg-4 rounded p-4 shadow">
+            <div class="row justify-content-center mb-4">
+                <h3>BYTE – Capacitación 2022</h3>
+                <form class="form" (ngSubmit)="formSubmit()">
+                    <div class="mb-4">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>ID del cliente</mat-label>
+                            <input [(ngModel)]="loginData.username" name="customerid" required matInput
+                                placeholder="Digite su ID de cliente" autocomplete="off">
+                            <mat-hint>El ID del cliente debe ser válido</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-4">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Contraseña</mat-label>
+                            <input [(ngModel)]="loginData.password" name="password" required type="password"
+                                placeholder="Digite su contraseña" matInput [type]="hide ? 'password' : 'text'">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-hint>La contraseña debe ser válida</mat-hint>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary">Iniciar sesión</button>
+                        <button type="reset" style="margin-left: 20px;" mat-raised-button
+                            color="accent">Limpiar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
