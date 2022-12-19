@@ -14,10 +14,10 @@ public class Order_detail {
     private int OrderID;
     @Getter @Setter @ManyToOne(fetch = FetchType.EAGER)
     private Product product;
-    @Getter @Setter
+    @Getter @Setter @Column(columnDefinition = "decimal(19,2) default 0")
     private BigDecimal UnitPrice;
-    @Getter @Setter
+    @Getter @Setter @Column(columnDefinition = "smallint default 1")
     private short Quantity;
-    @Getter @Setter
+    @Getter @Setter @Column(columnDefinition = "float default 0")
     private float Discount;
 }

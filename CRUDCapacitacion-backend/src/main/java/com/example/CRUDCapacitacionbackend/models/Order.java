@@ -12,7 +12,11 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "orders")
+@Table(name = "orders", indexes = {
+        @Index(columnList = "OrderDate"),
+        @Index(columnList = "ShippedDate"),
+        @Index(columnList = "ShipPostalCode")
+})
 public class Order {
     @Id
     @Getter @Setter @GeneratedValue(strategy = GenerationType.IDENTITY)

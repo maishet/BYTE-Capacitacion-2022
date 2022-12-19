@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "categories", indexes = @Index(columnList = "CategoryName",unique = true))
 public class Category {
 
     @Id

@@ -9,7 +9,10 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "suppliers")
+@Table(name = "suppliers", indexes = {
+        @Index(columnList = "CompanyName"),
+        @Index(columnList = "PostalCode")
+})
 public class Supplier {
     @Id
     @Getter @Setter @GeneratedValue(strategy = GenerationType.IDENTITY)

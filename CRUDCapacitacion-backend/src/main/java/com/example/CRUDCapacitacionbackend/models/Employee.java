@@ -10,7 +10,10 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "employees", indexes = {
+        @Index(columnList = "FirstName"),
+        @Index(columnList = "PostalCode")
+})
 public class Employee {
     @Id
     @Getter @Setter @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -10,7 +10,12 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "customers")
+@Table(name = "customers", indexes = {
+        @Index(columnList = "City"),
+        @Index(columnList = "CompanyName"),
+        @Index(columnList = "PostalCode"),
+        @Index(columnList = "Region")
+})
 public class Customer {
     @Id
     @Getter @Setter @Column(length = 5)
