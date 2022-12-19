@@ -14,6 +14,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,6 +25,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { AddComponent } from './pages/customer/add/add.component';
 import { EditComponent } from './pages/customer/edit/edit.component';
 import { DashboardComponent } from './pages/customer/dashboard/dashboard.component';
+import { RegistroComponent } from './pages/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { DashboardComponent } from './pages/customer/dashboard/dashboard.compone
     LoginComponent,
     AddComponent,
     EditComponent,
-    DashboardComponent
+    DashboardComponent,
+    RegistroComponent
   ],
   imports: [
     HttpClientModule,
@@ -45,6 +48,7 @@ import { DashboardComponent } from './pages/customer/dashboard/dashboard.compone
     FormsModule,
     MatToolbarModule,
     MatInputModule,
+    MatListModule,
     MatCardModule,
     MatMenuModule,
     MatIconModule,

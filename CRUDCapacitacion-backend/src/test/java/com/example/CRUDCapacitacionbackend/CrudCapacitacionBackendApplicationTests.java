@@ -1,7 +1,7 @@
 package com.example.CRUDCapacitacionbackend;
 
 import com.example.CRUDCapacitacionbackend.models.Usuario;
-import com.example.CRUDCapacitacionbackend.repositories.UserRepository;
+import com.example.CRUDCapacitacionbackend.repositories.UsuarioRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class CrudCapacitacionBackendApplicationTests {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UsuarioRepository usuarioRepository;
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -24,7 +24,7 @@ class CrudCapacitacionBackendApplicationTests {
 		Usuario usuario = new Usuario();
 		usuario.setName("admin");
 		usuario.setClave(bCryptPasswordEncoder.encode("12345"));
-		Usuario retorno = userRepository.save(usuario);
+		Usuario retorno = usuarioRepository.save(usuario);
 		assertTrue(retorno.getClave().equalsIgnoreCase(usuario.getClave()));
 	}
 

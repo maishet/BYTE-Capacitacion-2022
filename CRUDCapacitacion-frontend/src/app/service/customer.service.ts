@@ -7,25 +7,25 @@ import baserUrl from './helper';
 })
 export class CustomerService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http:HttpClient) { }
 
-  public getCustomers(){
-    return this.httpClient.get(`${baserUrl}/customers/`);
+  public listarCustomers(){
+    return this.http.get(`${baserUrl}/customers/`);
   }
 
-  public agregarCustomers(customer:any){
-    return this.httpClient.post(`${baserUrl}/customers/`,customer);
+  public saveCustomer(customer:any){
+    return this.http.post(`${baserUrl}/customers/`,customer);
   }
 
-  public eliminarCustomers(customerId:any){
-    return this.httpClient.delete(`${baserUrl}/customers/${customerId}`);
+  public updateCustomer(customer:any){
+    return this.http.put(`${baserUrl}/customers/`,customer);
+  }
+  
+  public getCustomer(customerId:any){
+    return this.http.get(`${baserUrl}/customers/${customerId}`);
   }
 
-  public obtenerCustomers(customerId:any){
-    return this.httpClient.get(`${baserUrl}/customers/${customerId}`);
-  }
-
-  public actualizarCustomers(customer:any){
-    return this.httpClient.put(`${baserUrl}/customers/`,customer);
+  public deteleCustomer(customerId:any){
+    return this.http.delete(`${baserUrl}/customers/${customerId}`);
   }
 }

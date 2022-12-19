@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/customer/dashboard/dashboard.component';
 import { AddComponent } from './pages/customer/add/add.component';
 import { EditComponent } from './pages/customer/edit/edit.component';
+import { RegistroComponent } from './pages/registro/registro.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent,
     pathMatch: 'full'
   },
   {

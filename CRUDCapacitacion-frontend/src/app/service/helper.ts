@@ -1,2 +1,2 @@
-let baserUrl = 'http://localhost:4200'
+let baserUrl = 'http://localhost:8080'
 export default baserUrl;

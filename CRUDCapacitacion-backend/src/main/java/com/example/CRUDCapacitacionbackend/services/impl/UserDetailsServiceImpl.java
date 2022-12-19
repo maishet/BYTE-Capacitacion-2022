@@ -1,7 +1,7 @@
 package com.example.CRUDCapacitacionbackend.services.impl;
 
 import com.example.CRUDCapacitacionbackend.models.Usuario;
-import com.example.CRUDCapacitacionbackend.repositories.UserRepository;
+import com.example.CRUDCapacitacionbackend.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,11 +18,11 @@ import java.util.List;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UsuarioRepository usuarioRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario usuario = userRepository.findByName(username);
+        Usuario usuario = usuarioRepository.findByName(username);
 
         List<GrantedAuthority> roles = new ArrayList<>();
         roles.add(new SimpleGrantedAuthority("ADMIN"));
