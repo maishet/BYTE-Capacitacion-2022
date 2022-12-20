@@ -1,6 +1,7 @@
 package com.example.CRUDCapacitacionbackend.controllers;
 
 import com.example.CRUDCapacitacionbackend.configuration.JwtUtils;
+import com.example.CRUDCapacitacionbackend.exception.UsuarioNotFoundException;
 import com.example.CRUDCapacitacionbackend.models.JwtRequest;
 import com.example.CRUDCapacitacionbackend.models.JwtResponse;
 import com.example.CRUDCapacitacionbackend.models.Usuario;
@@ -12,14 +13,12 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
 @RestController
+@CrossOrigin("*") //permite hacer el intercambio de recurso (las solicitudes)
 public class AuthenticationController {
 
     @Autowired
@@ -35,7 +34,7 @@ public class AuthenticationController {
     public ResponseEntity<?> generarToken(@RequestBody JwtRequest jwtRequest) throws Exception {
         try{
             autenticar(jwtRequest.getUsername(),jwtRequest.getPassword());
-        }catch (Exception exception){
+        }catch (UsuarioNotFoundException exception){
             exception.printStackTrace();
             throw new Exception("Usuario no encontrado");
         }

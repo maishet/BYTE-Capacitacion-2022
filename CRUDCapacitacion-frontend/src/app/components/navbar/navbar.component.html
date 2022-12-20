@@ -31,9 +31,9 @@
   >
     Registrar
   </a>
-  <!-- <a
-    *ngIf="!isLoggedIn"
-    [routerLink]="'/customers'"
+  <a
+    *ngIf="isLoggedIn"
+    [routerLink]="'/admin'"
     mat-icon-button
     class="example-icon favorite-icon mr20 ml70"
     aria-label="Example icon-button with heart icon"
@@ -58,5 +58,5 @@
     aria-label="Example icon-button with heart icon"
   >
     {{ user.username }}
-  </button> -->
+  </button>
 </mat-toolbar>

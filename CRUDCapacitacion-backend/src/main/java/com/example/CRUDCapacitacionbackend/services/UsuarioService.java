@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UsuarioService {
 
-    Usuario saveUsuario(Usuario usuario);
+    Usuario saveUsuario(Usuario usuario) throws Exception;
 
     Usuario getUsuario(String username);
 

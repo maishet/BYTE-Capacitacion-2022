@@ -1,10 +1,11 @@
 import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './pages/customer/dashboard/dashboard.component';
-import { AddComponent } from './pages/customer/add/add.component';
-import { EditComponent } from './pages/customer/edit/edit.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { AddComponent } from './pages/admin/add/add.component';
+import { EditComponent } from './pages/admin/edit/edit.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { AdminGuard } from './service/admin.guard';
 
 const routes: Routes = [
   {
@@ -23,17 +24,22 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path:'customers',
+    path:'admin',
     component:DashboardComponent,
-    //canActivate:[AdminGuard],
+    pathMatch: 'full',
+    canActivate:[AdminGuard],
     children:[
       {
-        path : 'add',
-        component : AddComponent
+        path: '',
+        component: DashboardComponent,
       },
       {
-        path : 'edit',
-        component : EditComponent
+        path : 'add',
+        component : AddComponent,
+      },
+      {
+        path : 'cliente/:customerId',
+        component : EditComponent,
       },
     ]
   },

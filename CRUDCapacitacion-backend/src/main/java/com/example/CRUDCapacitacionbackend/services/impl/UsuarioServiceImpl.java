@@ -14,11 +14,11 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 
     @Override
-    public Usuario saveUsuario(Usuario usuario){
+    public Usuario saveUsuario(Usuario usuario) throws Exception {
         Usuario usuariolocal =usuarioRepository.findByName(usuario.getName());
         if (usuariolocal != null){
             System.out.println("El usuario ya existe");
-            //throw new UsuarioFoundException("El usuario ya esta presente");
+            throw new Exception("El usuario ya esta presente");
         }else {
             usuariolocal = usuarioRepository.save(usuario);
         }

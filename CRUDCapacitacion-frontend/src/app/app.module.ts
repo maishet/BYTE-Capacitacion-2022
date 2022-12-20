@@ -22,10 +22,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-import { AddComponent } from './pages/customer/add/add.component';
-import { EditComponent } from './pages/customer/edit/edit.component';
-import { DashboardComponent } from './pages/customer/dashboard/dashboard.component';
+import { AddComponent } from './pages/admin/add/add.component';
+import { EditComponent } from './pages/admin/edit/edit.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { authInterceptorProviders } from './service/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
     MatOptionModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

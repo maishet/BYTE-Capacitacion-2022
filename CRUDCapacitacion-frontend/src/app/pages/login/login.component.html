@@ -8,11 +8,11 @@
         <div class="col-sm-8 col-md-6 col-lg-4 rounded p-4 shadow">
             <div class="row justify-content-center mb-4">
                 <h3>BYTE – Capacitación 2022</h3>
-                <form class="form" (ngSubmit)="formSubmit()">
+                <form class="form" (ngSubmit)="formSubmit()" >
                     <div class="mb-4">
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>usuario</mat-label>
-                            <input [(ngModel)]="loginData.username" name="customerid" required matInput
+                            <input [(ngModel)]="datoslogin.username" name="username" required matInput
                                 placeholder="Digite su ID de cliente" autocomplete="off">
                             <mat-hint>El nombre de usuario debe ser válido</mat-hint>
                         </mat-form-field>
@@ -20,7 +20,7 @@
                     <div class="mb-4">
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Contraseña</mat-label>
-                            <input [(ngModel)]="loginData.password" name="password" required type="password"
+                            <input [(ngModel)]="datoslogin.password" name="password" required type="password"
                                 placeholder="Digite su contraseña" matInput [type]="hide ? 'password' : 'text'">
                             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                                 [attr.aria-pressed]="hide">

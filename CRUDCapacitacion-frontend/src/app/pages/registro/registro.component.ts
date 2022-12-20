@@ -9,8 +9,8 @@ import { UserService } from './../../service/user.service';
 })
 export class RegistroComponent implements OnInit{
   public user = {
-    username : '',
-    password : '',
+    name : '',
+    clave : '',
   }
   constructor(private userService:UserService,private snack:MatSnackBar) { }
   ngOnInit(): void {
@@ -18,7 +18,7 @@ export class RegistroComponent implements OnInit{
 
   formSubmit(){
     console.log(this.user);
-    if(this.user.username == '' || this.user.username == null){
+    if(this.user.name == '' || this.user.name == null){
       this.snack.open('El nombre de usuario es requerido !!','Aceptar',{
         duration : 3000,
         verticalPosition : 'top',
@@ -27,16 +27,20 @@ export class RegistroComponent implements OnInit{
       return;
     }
 
-    // this.userService.añadirUsuario(this.user).subscribe(
-    //   (data) => {
-    //     console.log(data);
-    //     Swal.fire('Usuario guardado','Usuario registrado con exito en el sistema','success');
-    //   },(error) => {
-    //     console.log(error);
-    //     this.snack.open('Ha ocurrido un error en el sistema !!','Aceptar',{
-    //       duration : 3000
-    //     });
-    //   }
-    // )
+    this.userService.guardarUsuario(this.user).subscribe(
+      (data) => {
+        console.log(data);
+        this.snack.open('Usuario registrado con éxito !!','Aceptar',{
+          duration : 3000,
+          verticalPosition : 'top',
+          horizontalPosition : 'right'
+        });
+      },(error) => {
+        console.log(error);
+        this.snack.open('Ha ocurrido un error en el sistema !!','Aceptar',{
+          duration : 3000
+        });
+      }
+    )
   }
 }
