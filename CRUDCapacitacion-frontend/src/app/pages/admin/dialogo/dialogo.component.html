@@ -1,0 +1,83 @@
+<h1 mat-dialog-title>Nuevo Cliente</h1>
+<div mat-dialog-content>
+  <form [formGroup]="clienteform">
+    <mat-form-field appearance="fill">
+      <mat-label>ID cliente</mat-label>
+      <input formControlName="customerID" matInput placeholder="Digite su ID del cliente" />
+      <mat-icon matSuffix>face</mat-icon>
+      <mat-hint>Digite su ID Cliente</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre de empresa</mat-label>
+      <input formControlName="companyName" matInput placeholder="Digite el nombre de empresa" />
+      <mat-icon matSuffix>work</mat-icon>
+      <mat-hint>Digite el Nombre de Empresa</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre de contacto</mat-label>
+      <input formControlName="contactName" matInput placeholder="Digite el Nombre de contacto" />
+      <mat-icon matSuffix>perm_identity</mat-icon>
+      <mat-hint>Digite el Nombre de Contacto</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Titulo de contacto</mat-label>
+      <input formControlName="contactTitle" matInput placeholder="Digite su Titulo de contacto" />
+      <mat-icon matSuffix>contacts</mat-icon>
+      <mat-hint>Digite su Titulo de contacto</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Dirección</mat-label>
+      <textarea formControlName="address" matInput></textarea>
+      <mat-icon matSuffix>location_on</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Pais</mat-label>
+      <mat-select formControlName="country">
+        <mat-option *ngFor="let p of paises" [value]="p.name.common">
+          <img
+            class="icon"
+            src="{{ p.flags.svg }}"
+            width="20"
+            height="20"
+            routerLink="/"
+          />
+          {{ p.name.common }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Ciudad</mat-label>
+      <input formControlName="city" matInput placeholder="Digite su ciudad" />
+      <mat-hint>Digite su ciudad</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Región</mat-label>
+      <mat-select formControlName="region">
+        <mat-option *ngFor="let r of region" [value]="r">
+          {{ r }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Código Postal</mat-label>
+      <input formControlName="postalCode" matInput placeholder="Digite su código postal" />
+      <mat-icon matSuffix>local_post_office</mat-icon>
+      <mat-hint>Digite su código postal</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Teléfono</mat-label>
+      <input formControlName="phone" matInput type="number" placeholder="Digite su teléfono" />
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-hint>Digite su teléfono</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Fax</mat-label>
+      <input formControlName="fax" matInput placeholder="Digite su fax" />
+      <mat-hint>Digite su fax</mat-hint>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="primary" mat-dialog-close>Cerrar</button>
+  <button mat-raised-button color="warn" (click)="guardarCliente()">{{actionBtn}}</button>
+</div>
